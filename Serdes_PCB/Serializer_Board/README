@@ -1,1 +1,12 @@
+This is the current rev1.0. of the Serializer Board section
 
+For your references: 
+
+EVALUATION BOARD KIT REFEREENCE DESIGN
+1. https://www.ti.com/lit/ug/snlu135b/snlu135b.pdf?ts=1768362996077 - D13 evaluation board with schematic reference and layout
+2. https://www.ti.com/lit/ug/snlu210c/snlu210c.pdf?ts=1768432814814&ref_url=https%253A%252F%252Fwww.ti.com%252Ftool%252FDS90UB933-Q1EVM - D33 EVM with schematic and layout
+3. https://www.ti.com/lit/ug/snlu220/snlu220.pdf?ts=1768434198677&ref_url=https%253A%252F%252Fwww.ti.com%252Ftool%252FDS90UB934-Q1EVM - D34 EVM with schematic and layout
+
+SERIALIZER AND DESERIALIZER BOARD INDEPENDENT REVIEW 
+1. https://www.ti.com/lit/ds/symlink/ds90ub933-q1.pdf?ts=1768366476275 - D33 datasheet itself
+2. 
