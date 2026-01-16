@@ -1,9 +1,9 @@
-# REV1.01 
+# REV1.1
 
 # NOTES:
 - Removed a ton of LDO regulators and keeping 4 total regulators 3.3V, 1.8V corresponding to core circuitry powering and USB powering
 - Any unnecessary connectors removed
 - SSC crystal removed as component is not needed
 - Deleted the D33_POWER_SCHEMATIC.SchDoc 
--No errors or Warnings after ERC checks
+- No errors or Warnings after ERC checks
 
