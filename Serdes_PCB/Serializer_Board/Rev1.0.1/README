@@ -1,4 +1,4 @@
-# REV1.1 
+# REV1.01 
 
 # NOTES:
 - Removed a ton of LDO regulators and keeping 4 total regulators 3.3V, 1.8V corresponding to core circuitry powering and USB powering
