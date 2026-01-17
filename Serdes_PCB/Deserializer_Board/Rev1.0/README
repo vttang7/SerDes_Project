@@ -5,5 +5,8 @@
 -Uploaded D34 buck converters to power the deserializer itself and POC feed via buck converters
 //NOTE: For D14 deserialzer, we can duplicate the power slides from the Serializer
 
+# 1/17/26
+-Uploaded D34 Ethan's POC
+
 //TO-DO: Still need the D34 serializer schematic circuitry done, coax schematic for initial design purposes. Schematic analysis to simplify design
 
