@@ -7,3 +7,11 @@
 - Deleted the D33_POWER_SCHEMATIC.SchDoc 
 - No errors or Warnings after ERC checks
 
+# 2/1/26 updates:
+- Removed a zero ohm resistor next to VDD3P3 on BuckRegulatorOnSer schematic 
+- Replaced a 53k and 5.69k ohm resistors and found equivalent on Manufacturer part serach
+- Completed layout of buck converter (but it looks horrible)
+
+//To-DO: 
+- Continue routing the power of other LDO 
+- Still have to adjust design rules so theres no DRC errors
