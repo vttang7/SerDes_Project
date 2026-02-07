@@ -12,6 +12,10 @@
 - Replaced a 53k and 5.69k ohm resistors and found equivalent on Manufacturer part serach
 - Completed layout of buck converter (but it looks horrible)
 
+# 2/7/26 updates:
+- Restarted layout and instead of putting every component on the top side of the board, some of the components were put on the bottom side
+- Finished Buck and two LDOs from the buck
+
 //To-DO: 
-- Continue routing the power of other LDO 
+- Continue routing the power of other LDO from the USB
 - Still have to adjust design rules so theres no DRC errors
