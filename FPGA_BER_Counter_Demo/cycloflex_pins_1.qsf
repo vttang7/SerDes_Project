@@ -1,0 +1,120 @@
+# ==============================================================================
+# CycloFlex BER Tester - Quartus Pin Assignments
+# ==============================================================================
+# Target: 10CL016YE144C8G (Cyclone 10 LP, 144-pin EQFP)
+# Board:  EarthPeople Technology CycloFlex FPGA Development System
+#
+# USAGE: Add these lines to your .qsf file, or import via
+#        Assignments -> Import Assignments in Quartus.
+#
+# NOTE:  The oscillator pin (clk_50) is assumed to be PIN_22 based on
+#        standard Cyclone 10 LP clock input placement. Verify against
+#        your board schematic if compilation fails on clock routing.
+# ==============================================================================
+
+# --- Device Settings ---
+set_global_assignment -name FAMILY "Cyclone 10 LP"
+set_global_assignment -name DEVICE 10CL016YE144C8G
+set_global_assignment -name TOP_LEVEL_ENTITY ber_tester_cycloflex_top
+set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
+
+# --- Source Files ---
+set_global_assignment -name VERILOG_FILE ber_tester_cycloflex_top.v
+set_global_assignment -name VERILOG_FILE error_counter.v
+set_global_assignment -name VERILOG_FILE PRBS.v
+set_global_assignment -name VERILOG_FILE delay.v
+set_global_assignment -name VERILOG_FILE signal_synchroniser.v
+set_global_assignment -name VERILOG_FILE reset_synchroniser.v
+set_global_assignment -name VERILOG_FILE HEX_display.v
+
+# ==============================================================================
+# Clock
+# ==============================================================================
+# Verify this pin against your board schematic - 50 MHz oscillator
+set_location_assignment PIN_22 -to clk_50
+
+# ==============================================================================
+# Pushbuttons (active low, 1uF hardware debounce)
+# ==============================================================================
+set_location_assignment PIN_126 -to pb_switch_1
+set_location_assignment PIN_91  -to pb_switch_2
+
+# ==============================================================================
+# User LEDs [7:0] (active high)
+# ==============================================================================
+set_location_assignment PIN_10  -to user_leds[0]
+set_location_assignment PIN_32  -to user_leds[1]
+set_location_assignment PIN_33  -to user_leds[2]
+set_location_assignment PIN_42  -to user_leds[3]
+set_location_assignment PIN_114 -to user_leds[4]
+set_location_assignment PIN_112 -to user_leds[5]
+set_location_assignment PIN_113 -to user_leds[6]
+set_location_assignment PIN_106 -to user_leds[7]
+
+# ==============================================================================
+# RGB LED (active high)
+# ==============================================================================
+set_location_assignment PIN_43 -to led_red
+set_location_assignment PIN_44 -to led_blue
+set_location_assignment PIN_49 -to led_green
+
+# ==============================================================================
+# 7-Segment Display 1 - Error Count [3:0] LSB  (active low, current sink)
+# Connector J11 pins
+# ==============================================================================
+set_location_assignment PIN_142 -to disp1_a
+set_location_assignment PIN_141 -to disp1_b
+set_location_assignment PIN_135 -to disp1_c
+set_location_assignment PIN_137 -to disp1_d
+set_location_assignment PIN_136 -to disp1_e
+set_location_assignment PIN_143 -to disp1_f
+set_location_assignment PIN_144 -to disp1_g
+set_location_assignment PIN_133 -to disp1_dp
+
+# ==============================================================================
+# 7-Segment Display 2 - Error Count [7:4]  (active low, current sink)
+# Connector J6 pins
+# ==============================================================================
+set_location_assignment PIN_72  -to disp2_a
+set_location_assignment PIN_71  -to disp2_b
+set_location_assignment PIN_69  -to disp2_c
+set_location_assignment PIN_68  -to disp2_d
+set_location_assignment PIN_67  -to disp2_e
+set_location_assignment PIN_132 -to disp2_f
+set_location_assignment PIN_66  -to disp2_g
+set_location_assignment PIN_65  -to disp2_dp
+
+# ==============================================================================
+# 7-Segment Display 3 - Error Count [11:8] MSB  (active low, current sink)
+# Connector J9/J10 pins
+# ==============================================================================
+set_location_assignment PIN_105 -to disp3_a
+set_location_assignment PIN_100 -to disp3_b
+set_location_assignment PIN_99  -to disp3_c
+set_location_assignment PIN_101 -to disp3_d
+set_location_assignment PIN_103 -to disp3_e
+set_location_assignment PIN_111 -to disp3_f
+set_location_assignment PIN_119 -to disp3_g
+set_location_assignment PIN_98  -to disp3_dp
+
+# ==============================================================================
+# Data pattern RX/TX - Connector J8
+# ==============================================================================s
+set_location_assignment PIN_61 -to data_pattern_tx
+set_location_assignment PIN_60 -to clock_pattern_tx
+set_location_assignment PIN_59 -to data_tx_scope
+set_location_assignment PIN_58 -to data_rx_scope
+set_location_assignment PIN_52 -to data_pattern_rx
+
+
+# ==============================================================================
+# I/O Standards - CycloFlex runs 3.3V I/O
+# ==============================================================================
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+
+# ==============================================================================
+# Timing Constraints
+# ==============================================================================
+# Create base clock (50 MHz = 20ns period)
+set_global_assignment -name SDC_FILE cycloflex_ber_tester.sdc
+

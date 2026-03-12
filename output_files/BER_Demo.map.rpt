@@ -1,0 +1,648 @@
+Analysis & Synthesis report for BER_Demo
+Thu Mar 12 14:44:14 2026
+Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 Patches 0.02std SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Parameter Settings for User Entity Instance: PRBS:data_prbs
+ 13. Parameter Settings for User Entity Instance: signal_synchroniser:rx_sync
+ 14. Parameter Settings for User Entity Instance: PRBS:noise1_prbs
+ 15. Parameter Settings for User Entity Instance: PRBS:noise2_prbs
+ 16. Parameter Settings for User Entity Instance: PRBS:noise3_prbs
+ 17. Parameter Settings for User Entity Instance: PRBS:noise4_prbs
+ 18. Parameter Settings for User Entity Instance: PRBS:noise5_prbs
+ 19. Parameter Settings for User Entity Instance: PRBS:noise6_prbs
+ 20. Port Connectivity Checks: "PRBS:noise6_prbs"
+ 21. Port Connectivity Checks: "PRBS:noise5_prbs"
+ 22. Port Connectivity Checks: "PRBS:noise4_prbs"
+ 23. Port Connectivity Checks: "PRBS:noise3_prbs"
+ 24. Port Connectivity Checks: "PRBS:noise2_prbs"
+ 25. Port Connectivity Checks: "PRBS:noise1_prbs"
+ 26. Port Connectivity Checks: "HEX_display:hex_disp"
+ 27. Port Connectivity Checks: "error_counter:data_error_counter"
+ 28. Port Connectivity Checks: "delay:delay_inst"
+ 29. Port Connectivity Checks: "PRBS:data_prbs"
+ 30. Post-Synthesis Netlist Statistics for Top Partition
+ 31. Elapsed Time Per Partition
+ 32. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                                         ;
++------------------------------------+-----------------------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Mar 12 14:44:14 2026                           ;
+; Quartus Prime Version              ; 25.1std.0 Build 1129 10/21/2025 Patches 0.02std SC Lite Edition ;
+; Revision Name                      ; BER_Demo                                                        ;
+; Top-level Entity Name              ; ber_tester_cycloflex_top                                        ;
+; Family                             ; Cyclone 10 LP                                                   ;
+; Total logic elements               ; 116                                                             ;
+;     Total combinational functions  ; 99                                                              ;
+;     Dedicated logic registers      ; 82                                                              ;
+; Total registers                    ; 82                                                              ;
+; Total pins                         ; 45                                                              ;
+; Total virtual pins                 ; 4                                                               ;
+; Total memory bits                  ; 0                                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                                               ;
+; Total PLLs                         ; 0                                                               ;
++------------------------------------+-----------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                    ;
++------------------------------------------------------------------+--------------------------+--------------------+
+; Option                                                           ; Setting                  ; Default Value      ;
++------------------------------------------------------------------+--------------------------+--------------------+
+; Device                                                           ; 10CL016YE144C8G          ;                    ;
+; Top-level entity name                                            ; ber_tester_cycloflex_top ; BER_Demo           ;
+; Family name                                                      ; Cyclone 10 LP            ; Cyclone V          ;
+; Maximum processors allowed for parallel compilation              ; All                      ;                    ;
+; Use smart compilation                                            ; Off                      ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                       ; On                 ;
+; Enable compact report table                                      ; Off                      ; Off                ;
+; Restructure Multiplexers                                         ; Auto                     ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                      ; Off                ;
+; Preserve fewer node names                                        ; On                       ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable                   ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001             ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993                ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto                     ; Auto               ;
+; Safe State Machine                                               ; Off                      ; Off                ;
+; Extract Verilog State Machines                                   ; On                       ; On                 ;
+; Extract VHDL State Machines                                      ; On                       ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                      ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000                     ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                      ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                       ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                       ; On                 ;
+; Parallel Synthesis                                               ; On                       ; On                 ;
+; DSP Block Balancing                                              ; Auto                     ; Auto               ;
+; NOT Gate Push-Back                                               ; On                       ; On                 ;
+; Power-Up Don't Care                                              ; On                       ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                      ; Off                ;
+; Remove Duplicate Registers                                       ; On                       ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                      ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                      ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                      ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                      ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                      ; Off                ;
+; Ignore SOFT Buffers                                              ; On                       ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                      ; Off                ;
+; Optimization Technique                                           ; Balanced                 ; Balanced           ;
+; Carry Chain Length                                               ; 70                       ; 70                 ;
+; Auto Carry Chains                                                ; On                       ; On                 ;
+; Auto Open-Drain Pins                                             ; On                       ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                      ; Off                ;
+; Auto ROM Replacement                                             ; On                       ; On                 ;
+; Auto RAM Replacement                                             ; On                       ; On                 ;
+; Auto DSP Block Replacement                                       ; On                       ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto                     ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto                     ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                       ; On                 ;
+; Strict RAM Replacement                                           ; Off                      ; Off                ;
+; Allow Synchronous Control Signals                                ; On                       ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                      ; Off                ;
+; Auto RAM Block Balancing                                         ; On                       ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                      ; Off                ;
+; Auto Resource Sharing                                            ; Off                      ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                      ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                      ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                      ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                       ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                      ; Off                ;
+; Timing-Driven Synthesis                                          ; On                       ; On                 ;
+; Report Parameter Settings                                        ; On                       ; On                 ;
+; Report Source Assignments                                        ; On                       ; On                 ;
+; Report Connectivity Checks                                       ; On                       ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                      ; Off                ;
+; Synchronization Register Chain Length                            ; 2                        ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation       ; Normal compilation ;
+; HDL message level                                                ; Level2                   ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                      ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000                     ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000                     ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                      ; 100                ;
+; Clock MUX Protection                                             ; On                       ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                      ; Off                ;
+; Block Design Naming                                              ; Auto                     ; Auto               ;
+; SDC constraint protection                                        ; Off                      ; Off                ;
+; Synthesis Effort                                                 ; Auto                     ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                       ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                      ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium                   ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto                     ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                       ; On                 ;
++------------------------------------------------------------------+--------------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 24          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.02        ;
+; Maximum used               ; 16          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-16        ;   0.2%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                               ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                                                 ; Library ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------------------------------+---------+
+; ber_tester_cycloflex_top.v       ; yes             ; User Verilog HDL File  ; C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v ;         ;
+; delay.v                          ; yes             ; User Verilog HDL File  ; C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/delay.v                    ;         ;
+; HEX_display.v                    ; yes             ; User Verilog HDL File  ; C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/HEX_display.v              ;         ;
+; PRBS.v                           ; yes             ; User Verilog HDL File  ; C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/PRBS.v                     ;         ;
+; reset_synchroniser.v             ; yes             ; User Verilog HDL File  ; C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/reset_synchroniser.v       ;         ;
+; error_counter.v                  ; yes             ; User Verilog HDL File  ; C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/error_counter.v            ;         ;
+; signal_synchroniser.v            ; yes             ; User Verilog HDL File  ; C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/signal_synchroniser.v      ;         ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimated Total logic elements              ; 116          ;
+;                                             ;              ;
+; Total combinational functions               ; 99           ;
+; Logic element usage by number of LUT inputs ;              ;
+;     -- 4 input functions                    ; 37           ;
+;     -- 3 input functions                    ; 2            ;
+;     -- <=2 input functions                  ; 60           ;
+;                                             ;              ;
+; Logic elements by mode                      ;              ;
+;     -- normal mode                          ; 65           ;
+;     -- arithmetic mode                      ; 34           ;
+;                                             ;              ;
+; Total registers                             ; 82           ;
+;     -- Dedicated logic registers            ; 82           ;
+;     -- I/O registers                        ; 0            ;
+;                                             ;              ;
+; Virtual pins                                ; 4            ;
+; I/O pins                                    ; 45           ;
+;                                             ;              ;
+; Embedded Multiplier 9-bit elements          ; 0            ;
+;                                             ;              ;
+; Maximum fan-out node                        ; clk_50~input ;
+; Maximum fan-out                             ; 83           ;
+; Total fan-out                               ; 583          ;
+; Average fan-out                             ; 2.12         ;
++---------------------------------------------+--------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                             ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------+--------------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                            ; Entity Name              ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------+--------------------------+--------------+
+; |ber_tester_cycloflex_top                 ; 99 (35)             ; 82 (27)                   ; 0           ; 0            ; 0       ; 0         ; 45   ; 4            ; |ber_tester_cycloflex_top                                      ; ber_tester_cycloflex_top ; work         ;
+;    |HEX_display:hex_disp|                 ; 21 (21)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ber_tester_cycloflex_top|HEX_display:hex_disp                 ; HEX_display              ; work         ;
+;    |PRBS:data_prbs|                       ; 9 (9)               ; 12 (12)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ber_tester_cycloflex_top|PRBS:data_prbs                       ; PRBS                     ; work         ;
+;    |PRBS:noise1_prbs|                     ; 7 (7)               ; 10 (10)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ber_tester_cycloflex_top|PRBS:noise1_prbs                     ; PRBS                     ; work         ;
+;    |PRBS:noise4_prbs|                     ; 9 (9)               ; 13 (13)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ber_tester_cycloflex_top|PRBS:noise4_prbs                     ; PRBS                     ; work         ;
+;    |delay:delay_inst|                     ; 0 (0)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ber_tester_cycloflex_top|delay:delay_inst                     ; delay                    ; work         ;
+;    |error_counter:data_error_counter|     ; 18 (18)             ; 13 (13)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ber_tester_cycloflex_top|error_counter:data_error_counter     ; error_counter            ; work         ;
+;    |reset_synchroniser:global_reset_sync| ; 0 (0)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ber_tester_cycloflex_top|reset_synchroniser:global_reset_sync ; reset_synchroniser       ; work         ;
+;    |signal_synchroniser:rx_sync|          ; 0 (0)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ber_tester_cycloflex_top|signal_synchroniser:rx_sync          ; signal_synchroniser      ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------+--------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                      ;
++----------------------------------------+------------------------------------------------+
+; Register name                          ; Reason for Removal                             ;
++----------------------------------------+------------------------------------------------+
+; PRBS:noise6_prbs|lfsr[11,15]           ; Stuck at GND due to stuck port clock_enable    ;
+; PRBS:noise6_prbs|lfsr[14]              ; Lost fanout                                    ;
+; PRBS:noise6_prbs|lfsr[12,13]           ; Stuck at GND due to stuck port clock_enable    ;
+; PRBS:noise6_prbs|lfsr[10]              ; Stuck at VCC due to stuck port clock_enable    ;
+; PRBS:noise6_prbs|lfsr[0..9]            ; Lost fanout                                    ;
+; PRBS:noise5_prbs|lfsr[11]              ; Stuck at GND due to stuck port clock_enable    ;
+; PRBS:noise5_prbs|lfsr[0..10]           ; Lost fanout                                    ;
+; PRBS:noise5_prbs|lfsr[13,14]           ; Stuck at GND due to stuck port clock_enable    ;
+; PRBS:noise5_prbs|lfsr[12]              ; Lost fanout                                    ;
+; PRBS:noise3_prbs|lfsr[11]              ; Stuck at GND due to stuck port clock_enable    ;
+; PRBS:noise3_prbs|lfsr[10]              ; Stuck at VCC due to stuck port clock_enable    ;
+; PRBS:noise3_prbs|lfsr[8,9]             ; Lost fanout                                    ;
+; PRBS:noise3_prbs|lfsr[7]               ; Stuck at VCC due to stuck port clock_enable    ;
+; PRBS:noise3_prbs|lfsr[6]               ; Lost fanout                                    ;
+; PRBS:noise3_prbs|lfsr[5]               ; Stuck at VCC due to stuck port clock_enable    ;
+; PRBS:noise3_prbs|lfsr[0..4]            ; Lost fanout                                    ;
+; PRBS:noise2_prbs|lfsr[10]              ; Stuck at VCC due to stuck port clock_enable    ;
+; PRBS:noise2_prbs|lfsr[9]               ; Lost fanout                                    ;
+; PRBS:noise2_prbs|lfsr[8]               ; Stuck at VCC due to stuck port clock_enable    ;
+; PRBS:noise2_prbs|lfsr[0..7]            ; Lost fanout                                    ;
+; PRBS:data_prbs|lfsr[0]                 ; Merged with delay:delay_inst|delay_register[0] ;
+; PRBS:data_prbs|lfsr[1]                 ; Merged with delay:delay_inst|delay_register[1] ;
+; delay:delay_inst|delay_register[3..5]  ; Lost fanout                                    ;
+; Total Number of Removed Registers = 59 ;                                                ;
++----------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                          ;
++------------------------------------+--------------------------------+--------------------------------------------------------------------------------+
+; Register name                      ; Reason for Removal             ; Registers Removed due to This Register                                         ;
++------------------------------------+--------------------------------+--------------------------------------------------------------------------------+
+; PRBS:noise5_prbs|lfsr[11]          ; Stuck at GND                   ; PRBS:noise5_prbs|lfsr[10], PRBS:noise5_prbs|lfsr[9], PRBS:noise5_prbs|lfsr[8], ;
+;                                    ; due to stuck port clock_enable ; PRBS:noise5_prbs|lfsr[7], PRBS:noise5_prbs|lfsr[6], PRBS:noise5_prbs|lfsr[5],  ;
+;                                    ;                                ; PRBS:noise5_prbs|lfsr[4], PRBS:noise5_prbs|lfsr[3], PRBS:noise5_prbs|lfsr[2],  ;
+;                                    ;                                ; PRBS:noise5_prbs|lfsr[1], PRBS:noise5_prbs|lfsr[0]                             ;
+; PRBS:noise6_prbs|lfsr[10]          ; Stuck at VCC                   ; PRBS:noise6_prbs|lfsr[9], PRBS:noise6_prbs|lfsr[8], PRBS:noise6_prbs|lfsr[7],  ;
+;                                    ; due to stuck port clock_enable ; PRBS:noise6_prbs|lfsr[6], PRBS:noise6_prbs|lfsr[5], PRBS:noise6_prbs|lfsr[4],  ;
+;                                    ;                                ; PRBS:noise6_prbs|lfsr[3], PRBS:noise6_prbs|lfsr[2], PRBS:noise6_prbs|lfsr[1],  ;
+;                                    ;                                ; PRBS:noise6_prbs|lfsr[0]                                                       ;
+; PRBS:noise2_prbs|lfsr[8]           ; Stuck at VCC                   ; PRBS:noise2_prbs|lfsr[7], PRBS:noise2_prbs|lfsr[6], PRBS:noise2_prbs|lfsr[5],  ;
+;                                    ; due to stuck port clock_enable ; PRBS:noise2_prbs|lfsr[4], PRBS:noise2_prbs|lfsr[3], PRBS:noise2_prbs|lfsr[2],  ;
+;                                    ;                                ; PRBS:noise2_prbs|lfsr[1], PRBS:noise2_prbs|lfsr[0]                             ;
+; PRBS:noise3_prbs|lfsr[5]           ; Stuck at VCC                   ; PRBS:noise3_prbs|lfsr[4], PRBS:noise3_prbs|lfsr[3], PRBS:noise3_prbs|lfsr[2],  ;
+;                                    ; due to stuck port clock_enable ; PRBS:noise3_prbs|lfsr[1], PRBS:noise3_prbs|lfsr[0]                             ;
+; PRBS:noise3_prbs|lfsr[10]          ; Stuck at VCC                   ; PRBS:noise3_prbs|lfsr[9], PRBS:noise3_prbs|lfsr[8]                             ;
+;                                    ; due to stuck port clock_enable ;                                                                                ;
+; delay:delay_inst|delay_register[5] ; Lost Fanouts                   ; delay:delay_inst|delay_register[4], delay:delay_inst|delay_register[3]         ;
+; PRBS:noise6_prbs|lfsr[11]          ; Stuck at GND                   ; PRBS:noise6_prbs|lfsr[12]                                                      ;
+;                                    ; due to stuck port clock_enable ;                                                                                ;
+; PRBS:noise6_prbs|lfsr[15]          ; Stuck at GND                   ; PRBS:noise6_prbs|lfsr[14]                                                      ;
+;                                    ; due to stuck port clock_enable ;                                                                                ;
+; PRBS:noise5_prbs|lfsr[13]          ; Stuck at GND                   ; PRBS:noise5_prbs|lfsr[12]                                                      ;
+;                                    ; due to stuck port clock_enable ;                                                                                ;
+; PRBS:noise3_prbs|lfsr[7]           ; Stuck at VCC                   ; PRBS:noise3_prbs|lfsr[6]                                                       ;
+;                                    ; due to stuck port clock_enable ;                                                                                ;
+; PRBS:noise2_prbs|lfsr[10]          ; Stuck at VCC                   ; PRBS:noise2_prbs|lfsr[9]                                                       ;
+;                                    ; due to stuck port clock_enable ;                                                                                ;
++------------------------------------+--------------------------------+--------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 82    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 82    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 11    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------+
+; Inverted Register Statistics                                          ;
++-------------------------------------------------------------+---------+
+; Inverted Register                                           ; Fan out ;
++-------------------------------------------------------------+---------+
+; reset_synchroniser:global_reset_sync|sync_reset_register[1] ; 81      ;
+; PRBS:data_prbs|lfsr[10]                                     ; 2       ;
+; PRBS:data_prbs|lfsr[8]                                      ; 2       ;
+; PRBS:noise4_prbs|lfsr[5]                                    ; 2       ;
+; reset_synchroniser:global_reset_sync|sync_reset_register[0] ; 1       ;
+; PRBS:data_prbs|lfsr[7]                                      ; 1       ;
+; PRBS:noise1_prbs|lfsr[8]                                    ; 1       ;
+; PRBS:noise1_prbs|lfsr[5]                                    ; 1       ;
+; PRBS:noise4_prbs|lfsr[10]                                   ; 1       ;
+; PRBS:noise4_prbs|lfsr[8]                                    ; 1       ;
+; PRBS:noise1_prbs|lfsr[7]                                    ; 1       ;
+; PRBS:noise4_prbs|lfsr[7]                                    ; 1       ;
+; PRBS:noise4_prbs|lfsr[3]                                    ; 1       ;
+; PRBS:data_prbs|lfsr[5]                                      ; 1       ;
+; PRBS:noise1_prbs|lfsr[3]                                    ; 1       ;
+; PRBS:noise4_prbs|lfsr[2]                                    ; 1       ;
+; PRBS:noise1_prbs|lfsr[2]                                    ; 1       ;
+; PRBS:data_prbs|lfsr[3]                                      ; 1       ;
+; PRBS:data_prbs|lfsr[2]                                      ; 1       ;
+; Total number of inverted registers = 19                     ;         ;
++-------------------------------------------------------------+---------+
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PRBS:data_prbs ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; LFSR_WIDTH     ; 14    ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: signal_synchroniser:rx_sync ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; width          ; 1     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PRBS:noise1_prbs ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; LFSR_WIDTH     ; 10    ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PRBS:noise2_prbs ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; LFSR_WIDTH     ; 11    ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PRBS:noise3_prbs ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; LFSR_WIDTH     ; 12    ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PRBS:noise4_prbs ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; LFSR_WIDTH     ; 13    ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PRBS:noise5_prbs ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; LFSR_WIDTH     ; 15    ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PRBS:noise6_prbs ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; LFSR_WIDTH     ; 16    ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------+
+; Port Connectivity Checks: "PRBS:noise6_prbs" ;
++--------+-------+----------+------------------+
+; Port   ; Type  ; Severity ; Details          ;
++--------+-------+----------+------------------+
+; enable ; Input ; Info     ; Stuck at GND     ;
++--------+-------+----------+------------------+
+
+
++----------------------------------------------+
+; Port Connectivity Checks: "PRBS:noise5_prbs" ;
++--------+-------+----------+------------------+
+; Port   ; Type  ; Severity ; Details          ;
++--------+-------+----------+------------------+
+; enable ; Input ; Info     ; Stuck at GND     ;
++--------+-------+----------+------------------+
+
+
++----------------------------------------------+
+; Port Connectivity Checks: "PRBS:noise4_prbs" ;
++--------+-------+----------+------------------+
+; Port   ; Type  ; Severity ; Details          ;
++--------+-------+----------+------------------+
+; enable ; Input ; Info     ; Stuck at VCC     ;
++--------+-------+----------+------------------+
+
+
++----------------------------------------------+
+; Port Connectivity Checks: "PRBS:noise3_prbs" ;
++--------+-------+----------+------------------+
+; Port   ; Type  ; Severity ; Details          ;
++--------+-------+----------+------------------+
+; enable ; Input ; Info     ; Stuck at GND     ;
++--------+-------+----------+------------------+
+
+
++----------------------------------------------+
+; Port Connectivity Checks: "PRBS:noise2_prbs" ;
++--------+-------+----------+------------------+
+; Port   ; Type  ; Severity ; Details          ;
++--------+-------+----------+------------------+
+; enable ; Input ; Info     ; Stuck at GND     ;
++--------+-------+----------+------------------+
+
+
++----------------------------------------------+
+; Port Connectivity Checks: "PRBS:noise1_prbs" ;
++--------+-------+----------+------------------+
+; Port   ; Type  ; Severity ; Details          ;
++--------+-------+----------+------------------+
+; enable ; Input ; Info     ; Stuck at VCC     ;
++--------+-------+----------+------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "HEX_display:hex_disp"                                                                       ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                             ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; digit3       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; data[15..12] ; Input  ; Info     ; Stuck at GND                                                                        ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------+
+; Port Connectivity Checks: "error_counter:data_error_counter" ;
++--------+-------+----------+----------------------------------+
+; Port   ; Type  ; Severity ; Details                          ;
++--------+-------+----------+----------------------------------+
+; enable ; Input ; Info     ; Stuck at VCC                     ;
++--------+-------+----------+----------------------------------+
+
+
++------------------------------------------------+
+; Port Connectivity Checks: "delay:delay_inst"   ;
++--------------+-------+----------+--------------+
+; Port         ; Type  ; Severity ; Details      ;
++--------------+-------+----------+--------------+
+; delay_select ; Input ; Info     ; Stuck at GND ;
+; enable       ; Input ; Info     ; Stuck at VCC ;
++--------------+-------+----------+--------------+
+
+
++--------------------------------------------+
+; Port Connectivity Checks: "PRBS:data_prbs" ;
++--------+-------+----------+----------------+
+; Port   ; Type  ; Severity ; Details        ;
++--------+-------+----------+----------------+
+; enable ; Input ; Info     ; Stuck at VCC   ;
++--------+-------+----------+----------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 49                          ;
+; cycloneiii_ff         ; 82                          ;
+;     CLR               ; 71                          ;
+;     ENA CLR           ; 11                          ;
+; cycloneiii_lcell_comb ; 105                         ;
+;     arith             ; 34                          ;
+;         2 data inputs ; 32                          ;
+;         3 data inputs ; 2                           ;
+;     normal            ; 71                          ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 29                          ;
+;         2 data inputs ; 3                           ;
+;         4 data inputs ; 37                          ;
+;                       ;                             ;
+; Max LUT depth         ; 3.40                        ;
+; Average LUT depth     ; 1.95                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 25.1std.0 Build 1129 10/21/2025 Patches 0.02std SC Lite Edition
+    Info: Processing started: Thu Mar 12 14:44:09 2026
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off BER_Demo -c BER_Demo
+Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file ber_tester_cycloflex_top.v
+    Info (12023): Found entity 1: ber_tester_cycloflex_top File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file delay.v
+    Info (12023): Found entity 1: delay File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/delay.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file hex_display.v
+    Info (12023): Found entity 1: HEX_display File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/HEX_display.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file prbs.v
+    Info (12023): Found entity 1: PRBS File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/PRBS.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file reset_synchroniser.v
+    Info (12023): Found entity 1: reset_synchroniser File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/reset_synchroniser.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file error_counter.v
+    Info (12023): Found entity 1: error_counter File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/error_counter.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file signal_synchroniser.v
+    Info (12023): Found entity 1: signal_synchroniser File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/signal_synchroniser.v Line: 1
+Info (12127): Elaborating entity "ber_tester_cycloflex_top" for the top level hierarchy
+Info (12128): Elaborating entity "reset_synchroniser" for hierarchy "reset_synchroniser:global_reset_sync" File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 137
+Info (12128): Elaborating entity "PRBS" for hierarchy "PRBS:data_prbs" File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 147
+Warning (10230): Verilog HDL assignment warning at PRBS.v(19): truncated value with size 20 to match size of target (14) File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/PRBS.v Line: 19
+Info (12128): Elaborating entity "delay" for hierarchy "delay:delay_inst" File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 167
+Info (12128): Elaborating entity "signal_synchroniser" for hierarchy "signal_synchroniser:rx_sync" File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 196
+Info (12128): Elaborating entity "error_counter" for hierarchy "error_counter:data_error_counter" File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 209
+Info (12128): Elaborating entity "HEX_display" for hierarchy "HEX_display:hex_disp" File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 221
+Info (12128): Elaborating entity "PRBS" for hierarchy "PRBS:noise1_prbs" File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 259
+Warning (10230): Verilog HDL assignment warning at PRBS.v(19): truncated value with size 20 to match size of target (10) File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/PRBS.v Line: 19
+Info (12128): Elaborating entity "PRBS" for hierarchy "PRBS:noise2_prbs" File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 263
+Warning (10230): Verilog HDL assignment warning at PRBS.v(19): truncated value with size 20 to match size of target (11) File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/PRBS.v Line: 19
+Info (12128): Elaborating entity "PRBS" for hierarchy "PRBS:noise3_prbs" File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 267
+Warning (10230): Verilog HDL assignment warning at PRBS.v(19): truncated value with size 20 to match size of target (12) File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/PRBS.v Line: 19
+Info (12128): Elaborating entity "PRBS" for hierarchy "PRBS:noise4_prbs" File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 271
+Warning (10230): Verilog HDL assignment warning at PRBS.v(19): truncated value with size 20 to match size of target (13) File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/PRBS.v Line: 19
+Info (12128): Elaborating entity "PRBS" for hierarchy "PRBS:noise5_prbs" File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 275
+Warning (10230): Verilog HDL assignment warning at PRBS.v(19): truncated value with size 20 to match size of target (15) File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/PRBS.v Line: 19
+Info (12128): Elaborating entity "PRBS" for hierarchy "PRBS:noise6_prbs" File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 279
+Warning (10230): Verilog HDL assignment warning at PRBS.v(19): truncated value with size 20 to match size of target (16) File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/PRBS.v Line: 19
+Info (13000): Registers with preset signals will power-up high File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/reset_synchroniser.v Line: 21
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "user_leds[1]" is stuck at VCC File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 34
+    Warning (13410): Pin "user_leds[2]" is stuck at VCC File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 34
+    Warning (13410): Pin "user_leds[6]" is stuck at GND File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 34
+    Warning (13410): Pin "user_leds[7]" is stuck at GND File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 34
+    Warning (13410): Pin "led_blue" is stuck at GND File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 38
+    Warning (13410): Pin "disp1_dp" is stuck at VCC File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 49
+    Warning (13410): Pin "disp2_dp" is stuck at VCC File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 59
+    Warning (13410): Pin "disp3_dp" is stuck at VCC File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 69
+    Warning (13410): Pin "noise_2" is stuck at GND File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 81
+    Warning (13410): Pin "noise_3" is stuck at VCC File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 82
+    Warning (13410): Pin "noise_5" is stuck at GND File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 84
+    Warning (13410): Pin "noise_6" is stuck at VCC File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 86
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 43 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (15717): Design contains 4 virtual pins; timing numbers associated with paths containing virtual pins are estimates
+    Info (15719): Pin "noise_1" is virtual output pin File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 80
+    Info (15719): Pin "noise_2" is virtual output pin File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 81
+    Info (15719): Pin "noise_3" is virtual output pin File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 82
+    Info (15719): Pin "noise_4" is virtual output pin File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 83
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "pb_switch_2" File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 31
+    Warning (15610): No output dependent on input pin "data_pattern_rx" File: C:/Users/tangt/OneDrive/Desktop/General/UCI/Year_4_academics/SerDes_Evaluation_Board/GUI_BER_Demo/ber_tester_cycloflex_top.v Line: 73
+Info (21057): Implemented 168 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 41 output pins
+    Info (21061): Implemented 123 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 23 warnings
+    Info: Peak virtual memory: 4857 megabytes
+    Info: Processing ended: Thu Mar 12 14:44:14 2026
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:10
+
+
